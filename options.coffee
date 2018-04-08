@@ -75,7 +75,7 @@ window.options =
 				behaves.</p>
 
 				<p>Also see
-					<a target="_blank" href="https://vi.stackexchange.com/q/2162/51">this more in-depth explainer</a>.
+					<a target="_blank" href="https://vi.stackexchange.com/q/2162/51">Why doesn't the backspace key work in insert mode?</a>.
 				</p>
 			"""
 
@@ -108,8 +108,8 @@ window.options =
 					as will fit and display "@@@" at the end.</p>
 
 				<p>There is another useful option for 'display' that I rather
-					like: "uhex". This will make Vim show unprintable characters as
-					&lt;xx&gt; rather than ^L (Use &lt;C-v&gt;x00 in insert mode
+					like: "uhex". This will make Vim show unprintable characters
+					as &lt;xx&gt; rather than ^L (Use |i_CTRL-V| in insert mode
 					to see the difference.)</p>
 			"""
 
@@ -166,7 +166,7 @@ window.options =
 				a column with line numbers on the left-hand side of the screen.</p>
 
 				<p>You can also show the current line number in the 'statusline' by
-				setting 'ruler', or pressing &lt;C-g&gt; or &lt;gC-g&gt;</p>
+				setting 'ruler', or pressing |CTRL-G| or |g_CTRL-G|.</p>
 
 				<p>Also see 'relativenumber' for showing line numbers as
 				relative to the current line, 'numberwidth' for controlling the
@@ -184,9 +184,9 @@ window.options =
 				same indent level (requires Vim 7.4.338) and 'linebreak' to wrap
 				only at the end of words.</p>
 
-				<p>You can also use &lt;gj&gt; and &lt;gj&gt; to navigate
-				"visual" lines more easily. Many people line to override the
-				default behaviour by remapping keys with something like:</p>
+				<p>You can also use |gj| and |gk| to navigate "visual" lines
+				more easily. Many people line to override the default behaviour
+				by remapping keys with something like:</p>
 <pre>nnoremap k gk
 nnoremap j gj
 nnoremap <Up> gk
@@ -236,7 +236,7 @@ inoremap <Up> <C-o>gk</pre>
 				<p>Jump to the first match <em>while</em> typing the pattern with |/|.
 
 				<p>The cursor will jump back to the original position when
-					aborting (&lt;ESC&gt; or &lt;C-c&gt;).</p>
+					aborting (&lt;ESC&gt; or |CTRL-C|).</p>
 			"""
 
 		hlsearch:
@@ -248,7 +248,7 @@ inoremap <Up> <C-o>gk</pre>
 					This will highlight whatever is in that pattern.</p>
 
 				<p>You can use |:nohlsearch| to clear the highlighting. Many
-					people like to map this to e.g. &lt;C-l&gt;:
+					people like to map this to e.g. |CTRL-L|:
 
 				<pre>nnoremap <silent> <C-l> :nohlsearch<CR><C-l></pre>
 			"""
@@ -260,7 +260,7 @@ inoremap <Up> <C-o>gk</pre>
 			]
 			explainer: """
 				<p>Case-insensitive searching unless the pattern contains an
-					upper case letter or if |\\C| is in the pattern.</p>
+					upper case letter or if |/\\C| is in the pattern.</p>
 
 			"""
 
@@ -270,7 +270,7 @@ inoremap <Up> <C-o>gk</pre>
 			value: 'set nrformats-=octal'
 			explainer: """
 				<p>This controls how Vim should interpret numbers when pressing
-				&lt;C-a&gt; or &lt;C-x&gt; to increment to decrement a number.
+				|CTRL-A| or |CTRL-X| to increment to decrement a number.
 				By default numbers starting with a 0 are treated as octal
 				numbers, which can be rather confusing, so remove that.
 				</p>
@@ -309,16 +309,16 @@ inoremap <Up> <C-o>gk</pre>
 			value: 'set formatoptions+=ncroqlj'
 			explainer: """
 				<p>The 'formatoptions' setting controls how automatic formatting
-					when inserting text, formatting with &lt;gq&gt;, as well as
+					when inserting text, formatting with |gq|, as well as
 					some other commands.</p>
 				<p>
 					<code>n</code> – Recognize numbered lists when formatting (see 'formatlistpat').<br>
 					<code>c</code> – Wrap comments with 'textwidth'.<br>
 					<code>r</code> – Insert comment char after enter.<br>
-					<code>o</code> – Insert comment char after &lt;o&gt;/&lt;O&gt;.<br>
-					<code>q</code> – Format comments with &lt;gq&gt;.<br>
+					<code>o</code> – Insert comment char after |o|/|O|.<br>
+					<code>q</code> – Format comments with |gq|.<br>
 					<code>l</code> – Do not break lines when they were longer than 'textwidth' to start with.<br>
-					<code>j</code> – Remove comment character when joining lines with &lt;J&gt;.<br>
+					<code>j</code> – Remove comment character when joining lines with |J|.<br>
 				</p>
 			"""
 
@@ -371,7 +371,7 @@ inoremap <Up> <C-o>gk</pre>
 				endif """
 			explainer: """
 				<p>The matchit.vim plugin that comes bundled with Vim expands
-					the &lt;%&gt; key to work with various programming language
+					the |%| key to work with various programming language
 					keywords (e.g. jumping between <code>if</code> and
 					<code>end</code> in Ruby).</p>
 			"""
@@ -384,7 +384,7 @@ inoremap <Up> <C-o>gk</pre>
 			"""
 			explainer: """
 				<p>Selecting some text in |visual-mode| and then changing the
-					indentation with &lt;v_>&gt; &lt;v_<&gt; will make Vim lose the
+					indentation with |v_>| and |v_<| will make Vim lose the
 					visual selection, which is annoying if you want to change
 					several levels of indentation.</p>
 

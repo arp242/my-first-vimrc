@@ -275,14 +275,44 @@ helpify = (text) ->
 		.replace /('\w+')/g, (m) ->
 			url = "http://vimhelp.appspot.com/options.txt.html##{encode_uri m}"
 			return "<a class='help-option' target='_blank' href='#{url}'>#{m.replace /'/g, ''}</a>"
-		.replace /(&lt;[\w-<>]+&gt;)/g, (m) ->
+		#.replace /(&lt;[\w-<>]+&gt;)/g, (m) ->
+		#	url = "http://vimhelp.appspot.com/#{tagfile m}.txt.html##{encode_uri m}"
+		#	return "<a class='help-key' target='_blank' href='#{url}'>#{m}</a>"
+		.replace /\|([\w-/:\\<>]+)\|/g, (_, m) ->
 			# TODO: Get correct .txt file
-			url = "http://vimhelp.appspot.com/options.txt.html##{encode_uri m}"
+			url = "http://vimhelp.appspot.com/#{tagfile m}.txt.html##{encode_uri m}"
 			return "<a class='help-key' target='_blank' href='#{url}'>#{m}</a>"
-		.replace /\|([\w-/:\\]+)\|/g, (_, m) ->
-			# TODO: Get correct .txt file
-			url = "http://vimhelp.appspot.com/options.txt.html##{encode_uri m}"
-			return "<a class='help-key' target='_blank' href='#{url}'>#{m}</a>"
+
+helptags =
+	'%':           'motion'
+	'/':           'pattern'
+	'/\\C':        'pattern'
+	':nohlsearch': 'pattern'
+	'<ESC>':       'intro'
+	'<gq>':        'change'
+	'CTRL-A':      'change'
+	'CTRL-C':      'pattern'
+	'CTRL-G':      'editing'
+	'CTRL-L':      'various'
+	'CTRL-X':      'change'
+	'J':           'insert'
+	'O':           'insert'
+	'g_CTRL-G':    'editing'
+	'gj':          'motion'
+	'gk':          'motion'
+	'gq':          'change'
+	'hl-LineNr':   'syntax'
+	'i_CTRL-V':    'insert'
+	'o':           'insert'
+	'v_<':         'change'
+	'v_>':         'change'
+	'visual-mode': 'visual'
+
+tagfile = (tag) ->
+	tag = tag.replace('&lt;', '<').replace('&gt;', '>')
+	f = helptags[tag]
+	console.log "no file for #{tag}" unless f
+	return f
 
 encode_uri = (uri) ->
 	encodeURIComponent(uri)

@@ -4,11 +4,9 @@
 
 body {
 	margin: 1rem auto;
-	max-width: 90rem;
 	padding: 0 .3rem;
-	/* max-width: 105.5rem;*/
 
-	font-family: "DejaVu Sans", "Bitstream Vera Sans", "Lucida Grande", "Lucida Sans Unicode", sans serif;
+	font-family: "DejaVu Sans", "Bitstream Vera Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
 	font-size: 16px;
 	line-height: 1.6em;
 	overflow-y: scroll;
@@ -57,8 +55,6 @@ pre {
 }
 
 #output pre {
-	/*width: 52em; /* about 80 characters */
-
 	clear: both;
 	max-height: 50em;
 	border-radius: 2px;
@@ -70,10 +66,6 @@ pre {
 
 #control {
 	float: left;
-	/*border: 1px solid #666;
-	border-radius: 2px;
-	padding: .5rem;
-*/
 }
 #control-settings, #use-settings  {
 	float: right;
@@ -148,8 +140,6 @@ pre {
 #output {
 	float: right;
 	margin-top: 2rem;
-	/*margin-top: 3.55rem;*/
-	/*padding: .5rem;*/
 }
 
 #intro {
