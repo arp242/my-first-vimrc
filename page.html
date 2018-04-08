@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>My first vimrc</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="control">
+		<div id="intro-wrapper">
+			<h1>What is this? (<span id="toggle-intro">hide</span>)</h1>
+			<div id="intro">
+				<p></p>
+				<p>Vim is great, but not perfect. The default settings are not always useful. To make Vim useful almost
+				everyone <em>needs</em> to make a vimrc file with a few settings.</p>
+
+				<p>This is why ‘Vim distributions’ such as spf13, janus, and others exist. These setups provide people
+				with a useful and ‘modern’ Vim experience in a short amount of time, at the price of complexity.</p>
+				
+				<em>My first vimrc</em> is a tool to help people setting up a simple but effective vimrc for every-day
+				use in an interactive and educational way.</p>
+
+				<p>This doesn’t list all possible options or things you can stick in your vimrc, only the most useful
+				and common ones that a reasonable percentage of new(-ish) users may want to use. All options come with a
+				detailed description of what they do. <strong>Read the descriptions!</strong></p>
+
+				<p>Completely new to Vim?
+					<a target="_blank" href="http://vimhelp.appspot.com/usr_01.txt.html#vimtutor">Start with vimtutor</a>.</p>
+
+				<p>Vim’s help pages should be your first stop if you’re confused about something. See 
+					<a target="_blank" href="http://vimhelp.appspot.com/usr_02.txt.html#help-summary"><code>:help
+					help-summary</code></a> for instructions on how to use Vim’s excellent help system.
+					A great many questions can be solved by effective searching and reading of the help pages.</p>
+
+				<p>Still stuck or want to learn more? These places might be of help:</p>
+				<ul>
+					<li><a target="_blank" href="http://vimhelp.appspot.com/vim_faq.txt.html">The Vim FAQ</a> may have your
+						answer. <a target="_blank" href="http://vimhelp.appspot.com/quickref.txt.html"><code>:help
+						quickref</code></a> is also very handy.</li>
+					</li>
+					<li><a target="_blank" href="http://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the
+						Hard Way</a> is an excellent resource to start learning about Vim in depth (it’s not just
+						about Vimscript).</li>
+					<li><a target="_blank" href="https://vi.stackexchange.com/">Vi and Vim Stack Exchange</a> is useful
+						for specific problems or questions.</li>
+					<li><a target="_blank" href="http://reddit.com/r/vim/">/r/vim</a> on reddit can be great for some more open-ended
+						discussions.</li>
+				</ul>
+
+				<p>This list does not contain any plugins yet. This is not because I am opposed to them, but rather
+					because I haven't had the time to create a curated list. In the meanwhile, there are already a number of
+					‘best Vim plugins’ out there already.</p>
+				<p>You can save this webpage to your computer for offline use. It is a single HTML page.</p>
+
+				<div id="use-settings">
+					<input type="checkbox" id="use-neovim"><label for="use-neovim">I use Neovim</label>
+					<input type="checkbox" id="use-windows"><label for="use-windows">I use Microsoft Windows</label>
+				</div>
+				<h2>How to use the output</h2>
+				<div id="use-text"></div>
+				</div>
+		</div>
+
+		<div id="control-settings">
+			<input type="checkbox" id="toggle-all-explainers"><label for="toggle-all-explainers">Show all explainers</label>
+			<input type="checkbox" id="toggle-wizard"><label for="toggle-wizard">Use wizard mode</label>
+			<input type="checkbox" id="add-explainers"><label for="add-explainers">Add explainers to vimrc</label>
+		</div>
+
+		<div id="settings"></div>
+
+		<div id="wizard">
+			<div id="wizard-current"></div>
+			<div id="wizard-prev">← Previous</div>
+			<div id="wizard-next">Next →</div>
+			<div id="wizard-intro">
+				<p>In “wizard mode” you will step through all the settings one-by-one, asking you for your choice.
+					This is great if you really want to learn about Vim and grok what all the settings do. It is
+					recommended you also read through all the related help pages, as they will often contain more
+					information or links to related settings.</p>
+
+				<p>The current wizard step and selected options are saved in the URL, so if you save/bookmark it you will be
+					able to continue from where you stopped.</p>
+
+				<p>You can also switch back to “list mode” at any time. You will continue from the step where you left
+				when going back to “wizard mode”.</p>
+			</div>
+			<div style="clear: both"></div>
+		</div>
+	</div>
+
+	<div id="output">
+		<div id="source">
+			<a href="https://github.com/Carpetsmoker/my-first-vimrc">Source code</a> – contributions welcome!
+		</div>
+		<div id="download">
+			<a href="" id="download-btn" download="vimrc.txt">Download</a>
+			– see the intro on how to use the file.
+		</div>
+		<pre id="vimrc"></pre>
+	</div>
+
+	<script src="jquery.js"></script>
+	<script src="options.js"></script>
+	<script src="code.js"></script>
+</body>
+</html>

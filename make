@@ -7,4 +7,4 @@ cd "$root"
 coffee -c ./*.coffee
 
 # https://github.com/Carpetsmoker/singlepage
-singlepage index.html >| out.html || cat out.html
+singlepage page.html >| index.html || cat index.html
