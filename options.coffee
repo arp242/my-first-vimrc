@@ -379,8 +379,8 @@ inoremap <Up> <C-o>gk</pre>
 		reselect:
 			comment: ' Indent in visual and select mode automatically re-selects.'
 			value: """
-			vnoremap > >gv
-			vnoremap < <gv
+			vnoremap &gt; &gt;gv
+			vnoremap &lt; &lt;gv
 			"""
 			explainer: """
 				<p>Selecting some text in |visual-mode| and then changing the
