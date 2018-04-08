@@ -222,7 +222,7 @@ inoremap <Up> <C-o>gk</pre>
 			"""
 
 		textwidth:
-			comment: 'Wrap at <em>n</em> characters.'
+			comment: 'Wrap at n characters.'
 			default: true
 			default_val: 80
 			type: 'text'
@@ -282,7 +282,7 @@ inoremap <Up> <C-o>gk</pre>
 			default_val: 4
 			alsoadd: [
 				['set shiftwidth=0', "Use same value as 'tabstop'."],
-				['set softtabstop=-1', "Use same valie as 'shiftwidth'."]
+				['set softtabstop=-1', "Use same value as 'shiftwidth'."]
 			]
 			type: 'text'
 			explainer: """
@@ -326,7 +326,7 @@ inoremap <Up> <C-o>gk</pre>
 			comment: 'Store temporary files in <code>~/.vim/tmp</code>'
 			# TODO: Windows support.
 			value: """
-				set viminfo='n~/.vim/tmp/viminfo
+				set viminfo+=n~/.vim/tmp/viminfo
 				set backupdir=$HOME/.vim/tmp/backup
 				set dir=$HOME/.vim/tmp/swap
 				set viewdir=$HOME/.vim/tmp/view
@@ -379,8 +379,8 @@ inoremap <Up> <C-o>gk</pre>
 		reselect:
 			comment: ' Indent in visual and select mode automatically re-selects.'
 			value: """
-			vnoremap &gt; &gt;gv
-			vnoremap &lt; &lt;gv
+			vnoremap > >gv
+			vnoremap < <gv
 			"""
 			explainer: """
 				<p>Selecting some text in |visual-mode| and then changing the
@@ -411,10 +411,12 @@ inoremap <Up> <C-o>gk</pre>
 		last_cursor:
 			comment: 'Go to the last cursor location when opening a file.'
 			value: """
-				autocmd BufReadPost *
-					\ if line("'\"") > 1 && line("'\"") <= line("$") && &filetype != 'gitcommit'
-						\| exe 'normal! g`"'
-					\| endif
+				augroup jump
+					autocmd BufReadPost *
+						\\  if line("'\\"") > 1 && line("'\\"") <= line("$") && &ft !~# 'commit'
+							\\| exe 'normal! g`"'
+						\\| endif
+				augroup end
 			"""
 			explainer: """
 				<p>Go to the last cursor location when a file is opened, unless
@@ -443,7 +445,7 @@ inoremap <Up> <C-o>gk</pre>
 			value: """
 				fun! s:trim_whitespace()
 					let l:save = winsaveview()
-					%s/\s\+$//e
+					%s/\\s\\+$//e
 					call winrestview(l:save)
 				endfun
 				command! TrimWhitespace call s:trim_whitespace()

@@ -95,7 +95,7 @@ generate_vimrc = ->
 		else
 			vimrc += """#{line[0]}#{' '.repeat spaces - line[0].length}" #{line[1]}\n"""
 
-	$('#vimrc').html vimrc.trim().replace(/\n{2,}/g, '\n\n')
+	$('#vimrc').text vimrc.trim().replace(/\n{2,}/g, '\n\n')
 	$('#download-btn').attr 'href', "data:text/plain;charset=utf-8,#{encodeURIComponent $('#vimrc').text()}"
 
 
