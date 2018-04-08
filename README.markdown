@@ -1,5 +1,6 @@
-Source code for [My first vimrc](http://arp242.net/firstvimrc), a vimrc
-generator that doesn't add a world of complexity.
+Source code for [My first
+vimrc](https://carpetsmoker.github.io/my-first-vimrc/), a vimrc generator that
+doesn't add a world of complexity.
 
 The concept is inspired by [vimconfig.com](http://vimconfig.com), but I wouldn't
 recommend this site for various reasons. I did like the idea though, hence this
