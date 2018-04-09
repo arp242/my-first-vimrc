@@ -278,7 +278,7 @@ helpify = (text) ->
 		#.replace /(&lt;[\w-<>]+&gt;)/g, (m) ->
 		#	url = "http://vimhelp.appspot.com/#{tagfile m}.txt.html##{encode_uri m}"
 		#	return "<a class='help-key' target='_blank' href='#{url}'>#{m}</a>"
-		.replace /\|([\w-/:\\<>]+)\|/g, (_, m) ->
+		.replace /\|([\w-/:\\<>%]+)\|/g, (_, m) ->
 			# TODO: Get correct .txt file
 			url = "http://vimhelp.appspot.com/#{tagfile m}.txt.html##{encode_uri m}"
 			return "<a class='help-key' target='_blank' href='#{url}'>#{m}</a>"

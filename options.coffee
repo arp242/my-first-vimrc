@@ -250,7 +250,7 @@ inoremap <Up> <C-o>gk</pre>
 				<p>You can use |:nohlsearch| to clear the highlighting. Many
 					people like to map this to e.g. |CTRL-L|:
 
-				<pre>nnoremap <silent> <C-l> :nohlsearch<CR><C-l></pre>
+				<pre>nnoremap &lt;silent> &lt;C-l> :nohlsearch&lt;CR>&lt;C-l></pre>
 			"""
 
 		ignorecase:
