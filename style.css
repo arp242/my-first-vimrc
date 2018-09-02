@@ -169,17 +169,14 @@ pre {
 
 .help-option {
 	color: seagreen; /* Type, 2 */
-	text-decoration: none;
 }
 
 .help-key {
 	color: slateblue; /* Special, 5 */
-	text-decoration: none;
 }
 
 .help-tag {
 	color: darkcyan; /* Identifier, 6 */
-	text-decoration: none;
 }
 
 #source {
