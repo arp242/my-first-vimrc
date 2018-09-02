@@ -444,7 +444,7 @@ inoremap &lt;Up>   &lt;C-o>gk</pre>
 			value: """
 				fun! s:trim_whitespace()
 					let l:save = winsaveview()
-					%s/\\s\\+$//e
+					keeppatterns %s/\\s\\+$//e
 					call winrestview(l:save)
 				endfun
 				command! TrimWhitespace call s:trim_whitespace()
