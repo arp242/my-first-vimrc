@@ -187,12 +187,12 @@ window.options =
 				<p>You can also use |gj| and |gk| to navigate "visual" lines
 				more easily. Many people line to override the default behaviour
 				by remapping keys with something like:</p>
-<pre>nnoremap k gk
-nnoremap j gj
-nnoremap <Up> gk
-nnoremap <Down> gj
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk</pre>
+<pre>nnoremap k      gk
+nnoremap j      gj
+nnoremap &lt;Up>   gk
+nnoremap &lt;Down> gj
+inoremap &lt;Down> &lt;C-o>gj
+inoremap &lt;Up>   &lt;C-o>gk</pre>
 			"""
 
 		laststatus:
