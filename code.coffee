@@ -53,12 +53,6 @@ option_to_vimrc = (option_name) ->
 	option = get_option option_name
 
 	value = option.value
-	if $('#use-windows').is(':checked') and option.value_windows
-		if $('#use-neovim').is(':checked') and option.value_windows_nvim
-			value = option.value_windows_nvim
-		else
-			value = option.value_windows
-
 	if option.type is 'text'
 		value = "set #{option_name}=#{$("##{option_name}-val").val()}"
 	else if typeof value is 'undefined'
@@ -324,41 +318,6 @@ encode_uri = (uri) ->
 	encodeURIComponent(uri)
 		.replace /'/g, '%27'
 
-set_instructions = ->
-	locations =
-		vim:
-			windows: 'C:\\Users\\USERNAME\\vimfiles\\vimrc'
-			unix: '$HOME/.vim/vimrc'
-		neovim:
-			windows: 'C:\\Users\\USERNAME\\AppData\\Local\\nvim\\init.vim'
-			unix: '$HOME/.config/nvim/init.vim'
-
-
-	if $('#use-neovim').is ':checked'
-		l = locations.neovim
-	else
-		l = locations.vim
-	if $('#use-windows').is ':checked'
-		l = l.windows
-		vim_alt = 'C:\\Users\\USERNAME\\_vimrc'
-	else
-		l = l.unix
-		vim_alt = '$HOME/.vimrc'
-
-	text = """
-		<p>Copy the output file to <code>#{l}</code>.
-		Make the directory if it doesn’t exist yet.</p>
-	"""
-
-	unless $('#use-neovim').is ':checked'
-		text += """<p>
-			Vim will also load <code>#{vim_alt}</code>, but the above locations
-			are recommended. You may want to check if your system has this file
-			already to make sure you’ve got only one vimrc file.
-		"""
-
-	$('#use-text').html text
-
 # Let's go!
 $(document).ready ->
 	hash = get_hash()
@@ -367,11 +326,6 @@ $(document).ready ->
 	$('#toggle-all-explainers').attr 'checked', true if hash['show-all'] is '1'
 
 	populate_settings()
-	set_instructions()
-	$('#use-neovim, #use-windows').on 'change', ->
-		set_instructions()
-		generate_vimrc()
-
 	window.onhashchange
 		oldURL:
 			hash: ''

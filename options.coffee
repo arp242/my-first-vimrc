@@ -333,24 +333,7 @@ inoremap <Up> <C-o>gk</pre>
 				if !isdirectory(&dir)       | call mkdir(&dir, 'p', 0700)       | endif
 				if !isdirectory(&viewdir)   | call mkdir(&viewdir, 'p', 0700)   | endif
 			"""
-			value_windows: """
-				set viminfo+=n~/_vimfiles/tmp/viminfo
-				set backupdir=$HOME/_vimfiles/tmp/backup
-				set dir=$HOME/_vimfiles/tmp/swap
-				set viewdir=$HOME/_vimfiles/tmp/view
-				if !isdirectory(&backupdir) | call mkdir(&backupdir, 'p', 0700) | endif
-				if !isdirectory(&dir)       | call mkdir(&dir, 'p', 0700)       | endif
-				if !isdirectory(&viewdir)   | call mkdir(&viewdir, 'p', 0700)   | endif
-			"""
-			value_windows_nvim: """
-				set viminfo+=n~/AppData/Local/nvim/tmp/viminfo
-				set backupdir=$HOME/AppData/Local/nvim/tmp/backup
-				set dir=$HOME/AppData/Local/nvim/tmp/swap
-				set viewdir=$HOME/AppData/Local/nvim/tmp/view
-				if !isdirectory(&backupdir) | call mkdir(&backupdir, 'p', 0700) | endif
-				if !isdirectory(&dir)       | call mkdir(&dir, 'p', 0700)       | endif
-				if !isdirectory(&viewdir)   | call mkdir(&viewdir, 'p', 0700)   | endif
-			"""
+
 			explainer: """
 				<p>By default Vim will store various files in the current
 					directory. These files are useful, but storing them in the
@@ -365,18 +348,6 @@ inoremap <Up> <C-o>gk</pre>
 			value: """
 				if has('persistent_undo')
 					set undodir=$HOME/.vim/tmp/undo
-					if !isdirectory(&undodir) | call mkdir(&undodir, 'p', 0700) | endif
-				endif
-			"""
-			value_windows: """
-				if has('persistent_undo')
-					set undodir=$HOME/_vimfiles/tmp/undo
-					if !isdirectory(&undodir) | call mkdir(&undodir, 'p', 0700) | endif
-				endif
-			"""
-			value_windows_nvim: """
-				if has('persistent_undo')
-					set undodir=$HOME/AppData/Local/nvim/tmp/undo
 					if !isdirectory(&undodir) | call mkdir(&undodir, 'p', 0700) | endif
 				endif
 			"""
@@ -473,7 +444,7 @@ inoremap <Up> <C-o>gk</pre>
 			value: """
 				fun! s:trim_whitespace()
 					let l:save = winsaveview()
-					keeppatterns %s/\\s\\+$//e
+					%s/\\s\\+$//e
 					call winrestview(l:save)
 				endfun
 				command! TrimWhitespace call s:trim_whitespace()

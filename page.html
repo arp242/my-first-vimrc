@@ -17,7 +17,7 @@
 				<p>This is why ‘Vim distributions’ such as spf13, janus, and others exist. These setups provide people
 				with a useful and ‘modern’ Vim experience in a short amount of time, at the price of complexity.</p>
 				
-				<em>My first vimrc</em> is a tool to help people set up a simple but effective vimrc for every-day use
+				<p><em>My first vimrc</em> is a tool to help people set up a simple but effective vimrc for every-day use
 				in an interactive and educational way.</p>
 
 				<p>This doesn’t list all possible options or things you can stick in your vimrc, only the most useful
@@ -37,7 +37,6 @@
 					<li><a target="_blank" href="http://vimhelp.appspot.com/vim_faq.txt.html">The Vim FAQ</a> may have your
 						answer. <a target="_blank" href="http://vimhelp.appspot.com/quickref.txt.html"><code>:help
 						quickref</code></a> is also very handy.</li>
-					</li>
 					<li><a target="_blank" href="http://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the
 						Hard Way</a> is an excellent resource to start learning about Vim in depth (it’s not just
 						about Vimscript).</li>
@@ -52,13 +51,16 @@
 					‘best Vim plugins’ out there already.</p>
 				<p>You can save this webpage to your computer for offline use. It is a single HTML page.</p>
 
-				<div id="use-settings">
-					<input type="checkbox" id="use-neovim"><label for="use-neovim">I use Neovim</label>
-					<input type="checkbox" id="use-windows"><label for="use-windows">I use Microsoft Windows</label>
-				</div>
 				<h2>How to use the output</h2>
-				<div id="use-text"></div>
+				<div id="use-text">
+					<p>Copy the output file to <code>$HOME/.vim/vimrc</code>. Make the directory if it doesn’t exist
+					yet.</p>
+
+					<p>Vim will also load <code>$HOME/.vimrc</code>, but the above locations are recommended. You may
+						want to check if your system has this file already to make sure you’ve got only one vimrc
+						file.</p>
 				</div>
+			</div>
 		</div>
 
 		<div id="control-settings">
@@ -94,7 +96,7 @@
 			<a href="https://github.com/Carpetsmoker/my-first-vimrc" target="_blank">Source code</a> – contributions welcome!
 		</div>
 		<div id="download">
-			<a href="" id="download-btn" download="vimrc.txt">Download</a>
+			<a href="#" id="download-btn" download="vimrc.txt">Download</a>
 			– see the intro on how to use the file.
 		</div>
 		<pre id="vimrc"></pre>
