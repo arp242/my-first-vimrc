@@ -324,12 +324,29 @@ inoremap <Up> <C-o>gk</pre>
 
 		store_tmp:
 			comment: 'Store temporary files in <code>~/.vim/tmp</code>'
-			# TODO: Windows support.
 			value: """
 				set viminfo+=n~/.vim/tmp/viminfo
 				set backupdir=$HOME/.vim/tmp/backup
 				set dir=$HOME/.vim/tmp/swap
 				set viewdir=$HOME/.vim/tmp/view
+				if !isdirectory(&backupdir) | call mkdir(&backupdir, 'p', 0700) | endif
+				if !isdirectory(&dir)       | call mkdir(&dir, 'p', 0700)       | endif
+				if !isdirectory(&viewdir)   | call mkdir(&viewdir, 'p', 0700)   | endif
+			"""
+			value_windows: """
+				set viminfo+=n~/_vimfiles/tmp/viminfo
+				set backupdir=$HOME/_vimfiles/tmp/backup
+				set dir=$HOME/_vimfiles/tmp/swap
+				set viewdir=$HOME/_vimfiles/tmp/view
+				if !isdirectory(&backupdir) | call mkdir(&backupdir, 'p', 0700) | endif
+				if !isdirectory(&dir)       | call mkdir(&dir, 'p', 0700)       | endif
+				if !isdirectory(&viewdir)   | call mkdir(&viewdir, 'p', 0700)   | endif
+			"""
+			value_windows_nvim: """
+				set viminfo+=n~/AppData/Local/nvim/tmp/viminfo
+				set backupdir=$HOME/AppData/Local/nvim/tmp/backup
+				set dir=$HOME/AppData/Local/nvim/tmp/swap
+				set viewdir=$HOME/AppData/Local/nvim/tmp/view
 				if !isdirectory(&backupdir) | call mkdir(&backupdir, 'p', 0700) | endif
 				if !isdirectory(&dir)       | call mkdir(&dir, 'p', 0700)       | endif
 				if !isdirectory(&viewdir)   | call mkdir(&viewdir, 'p', 0700)   | endif
@@ -345,10 +362,21 @@ inoremap <Up> <C-o>gk</pre>
 
 		undodir:
 			comment: 'Persist undo history between Vim sessions.'
-			# TODO: Windows support.
 			value: """
 				if has('persistent_undo')
 					set undodir=$HOME/.vim/tmp/undo
+					if !isdirectory(&undodir) | call mkdir(&undodir, 'p', 0700) | endif
+				endif
+			"""
+			value_windows: """
+				if has('persistent_undo')
+					set undodir=$HOME/_vimfiles/tmp/undo
+					if !isdirectory(&undodir) | call mkdir(&undodir, 'p', 0700) | endif
+				endif
+			"""
+			value_windows_nvim: """
+				if has('persistent_undo')
+					set undodir=$HOME/AppData/Local/nvim/tmp/undo
 					if !isdirectory(&undodir) | call mkdir(&undodir, 'p', 0700) | endif
 				endif
 			"""
@@ -445,7 +473,7 @@ inoremap <Up> <C-o>gk</pre>
 			value: """
 				fun! s:trim_whitespace()
 					let l:save = winsaveview()
-					%s/\\s\\+$//e
+					keeppatterns %s/\\s\\+$//e
 					call winrestview(l:save)
 				endfun
 				command! TrimWhitespace call s:trim_whitespace()

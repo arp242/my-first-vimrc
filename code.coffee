@@ -53,6 +53,12 @@ option_to_vimrc = (option_name) ->
 	option = get_option option_name
 
 	value = option.value
+	if $('#use-windows').is(':checked') and option.value_windows
+		if $('#use-neovim').is(':checked') and option.value_windows_nvim
+			value = option.value_windows_nvim
+		else
+			value = option.value_windows
+
 	if option.type is 'text'
 		value = "set #{option_name}=#{$("##{option_name}-val").val()}"
 	else if typeof value is 'undefined'
@@ -334,8 +340,10 @@ set_instructions = ->
 		l = locations.vim
 	if $('#use-windows').is ':checked'
 		l = l.windows
+		vim_alt = 'C:\\Users\\USERNAME\\_vimrc'
 	else
 		l = l.unix
+		vim_alt = '$HOME/.vimrc'
 
 	text = """
 		<p>Copy the output file to <code>#{l}</code>.
@@ -344,8 +352,7 @@ set_instructions = ->
 
 	unless $('#use-neovim').is ':checked'
 		text += """<p>
-			Vim will also load <code>$HOME/.vimrc</code> and
-			<code>C:\\Users\\USERNAME\\_vimrc</code>, but the above locations
+			Vim will also load <code>#{vim_alt}</code>, but the above locations
 			are recommended. You may want to check if your system has this file
 			already to make sure you’ve got only one vimrc file.
 		"""
@@ -361,7 +368,9 @@ $(document).ready ->
 
 	populate_settings()
 	set_instructions()
-	$('#use-neovim, #use-windows').on 'change', set_instructions
+	$('#use-neovim, #use-windows').on 'change', ->
+		set_instructions()
+		generate_vimrc()
 
 	window.onhashchange
 		oldURL:
