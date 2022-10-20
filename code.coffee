@@ -100,7 +100,7 @@ generate_vimrc = ->
 
 
 # Get the length of longest value of all options.
-longest_option_value =  ->
+longest_option_value = ->
 	l = 0
 	for k, v of options['Basic options']
 		# Add 4 since we later add "set "
@@ -202,6 +202,7 @@ html_to_vim_comment = (html) ->
 		.replace /<\/p>/g, '\n\n\n\n'                           # Make sure that paragraphs are a block.
 		.replace /<a.*?href="(.*?)".*?>(.+?)<\/a>/g, '"$2": $1' # Links.
 		.replace /<\/?.+?>/g, ''                                # Remove remaining HTML tags.
+		.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')  # Remove HTML entities.
 		.replace /\n{2,}/g, '\n\n'                              # Trim excessive newlines.
 		.split '\n\n'                                           # Split by paragraph.
 		.map (p) ->                                             # Wrap paragraphs.
