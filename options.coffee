@@ -65,8 +65,7 @@ window.options =
 			default: true
 			value: 'set backspace=2'
 			explainer: """
-				<p>
-				Vim's default behaviour when pressing the backspacing is somewhat
+				<p>Vim's default behaviour when pressing the backspacing is somewhat
 				peculiar, it won’t allow you to backspace to the previous line,
 				automatically inserted indentation, or previously inserted text.</p>
 
@@ -242,8 +241,6 @@ inoremap &lt;Up>   &lt;C-o>gk</pre>
 		hlsearch:
 			comment: 'Highlight the last used search pattern.'
 			explainer: """
-				<p>Highlight the last used search pattern.</p>
-
 				<p>The last used search pattern is stored in the / register.
 					This will highlight whatever is in that pattern.</p>
 
