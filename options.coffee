@@ -132,7 +132,7 @@ window.options =
 			comment: 'Show (partial) command in bottom-right.'
 			default: true
 			explainer: """
-				<p>Vim had many commands that consist of two or more keystrokes.
+				<p>Vim has many commands that consist of two or more keystrokes.
 				If this option is enabled Vim will show the command you've typed
 				thus-far in the bottom-right of the screen.</p>
 
@@ -290,7 +290,7 @@ inoremap &lt;Up>   &lt;C-o>gk</pre>
 			"""
 
 		scrolloff:
-			comment: 'Minimum number of lines to keep above/below cursor.'
+			comment: 'Minimum number of lines to keep around cursor.'
 			default_val: 5
 			type: 'text'
 			explainer: """
