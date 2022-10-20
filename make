@@ -10,5 +10,5 @@ else
 	coffee -c ./*.coffee
 fi
 
-# https://github.com/Carpetsmoker/singlepage
+# https://github.com/arp242/singlepage
 singlepage page.html >| index.html || cat index.html
