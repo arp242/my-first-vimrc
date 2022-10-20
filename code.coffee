@@ -61,7 +61,7 @@ option_to_vimrc = (option_name) ->
 	comment = option.comment
 
 	# Add explainer.
-	comment += "<br><br>#{option.explainer}" if get_hash()['add-explainers'] is '1'
+	comment += "<br>\n<br>\n#{option.explainer}" if get_hash()['add-explainers'] is '1'
 	return [value, comment]
 
 get_option = (name) ->
